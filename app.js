@@ -1,11 +1,11 @@
 /*
-Create the board -
-    8 rows
-    8 columns
-    8 squares in each row/column - ensuring different ID for each
-    alternating black and red tiles
+    Create the board -
+        8 rows
+        8 columns
+        8 squares in each row/column - ensuring different ID for each
+        alternating black and red tiles
 
-Game Start -
+    Game Start -
 
     Turns -
         Players who have black pieces move first -
@@ -30,7 +30,7 @@ Game Start -
             forward AND backward movement are available
             if a piece is available to jump, you are able to jump in several directions
     
-Game Finish -
-    No pieces left on the board 
-    You win!
+    Game Finish -
+        No pieces left on the board 
+        You win!
 */
