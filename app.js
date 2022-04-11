@@ -1,36 +1,194 @@
-/*
-    Create the board -
-        8 rows
-        8 columns
-        8 squares in each row/column - ensuring different ID for each
-        alternating black and red tiles
+// Initialize checkerboard and represent it as a 2-D array
+let checkerBoard = [
+    [0, 1, 0, 1, 0, 1, 0, 1],
+    [1, 0, 1, 0, 1, 0, 1, 0],
+    [0, 1, 0, 1, 0, 1, 0, 1],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    [1, 0, 1, 0, 1, 0, 1, 0],
+    [0, 1, 0, 1, 0, 1, 0, 1],
+    [1, 0, 1, 0, 1, 0, 1, 0]
+];
 
-    Game Start -
+// Keep track if player is trying to move a piece
+let clickedPiece = false;
 
-    Turns -
-        Players who have black pieces move first -
-        Moving -
-        Pieces can only move diagonally across the board and single pieces are limited to forward moves
-            is there an opponent piece adjacent diagonally to your piece?
-                if so, you must jump over
-                is there another piece available to be captured?
-                    if so, you can decide whether or not to capture it
-        Reaching the end of the board -> Upgrade to a King
-            forward AND backward movement are available
-            if a piece is available to jump, you are able to jump in several directions
+// Keep track of piece location that player clicked on
+let clickedLocation = [null,null];
 
-        Player who has red pieces goes after -
-        Moving -
-        Pieces can only move diagonally across the board and single pieces are limited to forward moves
-            is there an opponent piece adjacent diagonally to your piece?
-                if so, you must jump over
-                is there another piece available to be captured?
-                    if so, you can decide whether or not to capture it
-        Reaching the end of the board -> Upgrade to a King
-            forward AND backward movement are available
-            if a piece is available to jump, you are able to jump in several directions
+// Function when clicking on black square when player attempts to move a piece
+function selectSquare(element) {
+    let clickLocation = element.id;
+    let locationRow = clickLocation[0];
+    let locationColumn = clickLocation[1];
+
+    // Move piece if player is trying to move
+    if(clickedPiece == true) {
+        // Figure out if piece is red or black
+        oldLocation = document.getElementById("1" + clickedLocation[0] + clickedLocation[1]);
+        let colorPiece = oldLocation.style.backgroundColor;
+
+        // Check if player clicked on a valid location
+        if((colorPiece == "red" && checkerBoard[locationRow][locationColumn] == 0) && ((parseInt(locationRow)+1 == parseInt(clickedLocation[0]) && (parseInt(locationColumn)+1 == parseInt(clickedLocation[1]) || parseInt(locationColumn)-1 == parseInt(clickedLocation[1]))) || parseInt(locationRow) + 2 == parseInt(clickedLocation[0]) && parseInt(locationColumn)+2 == parseInt(clickedLocation[1]) || parseInt(locationRow) + 2 == parseInt(clickedLocation[0]) && parseInt(locationColumn)-2 == parseInt(clickedLocation[1]))) {
+            let canCaptureMultiple = true;
+
+           while(canCaptureMultiple) {
+               console.log("i am looping here");
+            if(locationRow >= 0 && locationRow <= 7 && locationColumn >= 0 && locationColumn <= 7) {
+            // check if piece is captured
+
+            if(parseInt(locationRow) + 2 == parseInt(clickedLocation[0]) && parseInt(locationColumn)+2 == parseInt(clickedLocation[1]) && document.getElementById(("1".concat(parseInt(locationRow)+1)).concat(parseInt(locationColumn)+1)).style.backgroundColor=="rgb(26, 30, 36)")
+            {
+                document.getElementById(("1".concat(parseInt(locationRow)+1)).concat(parseInt(locationColumn)+1)).style.backgroundColor = "black";
+                checkerBoard[parseInt(locationRow)+1][parseInt(locationColumn)+1] = 0;
+
+            // move piece
+       
+            checkerBoard[locationRow][locationColumn] = 1;
+            newLocation = document.getElementById("1"+locationRow+locationColumn);
+            newLocation.style.backgroundColor = "red";
+
+            // remove piece from where it was
+            oldLocation = document.getElementById("1" + clickedLocation[0] + clickedLocation[1]);
+            oldLocation.style.backgroundColor = "black"
+            checkerBoard[clickedLocation[0]][clickedLocation[1]] = 0;
+
+            // done moving everything
+            clickedPiece = false;
+            console.log("Done, piece is moved");
+            
+            
+            // setup things for the while loop to repeat
+            clickedLocation[0] = locationRow;
+            clickedLocation[1] = locationColumn;
+            locationRow = locationRow - 2;
+            locationColumn = locationColumn - 2;
+            
+            console.log("1");
+            
+            }
+            else if(parseInt(locationRow) + 2 == parseInt(clickedLocation[0]) && parseInt(locationColumn)-2 == parseInt(clickedLocation[1]) && document.getElementById(("1".concat(parseInt(locationRow)+1)).concat(parseInt(locationColumn)-1)).style.backgroundColor=="rgb(26, 30, 36)"){
+
+                document.getElementById(("1".concat(parseInt(locationRow)+1)).concat(parseInt(locationColumn)-1)).style.backgroundColor = "black";
+                checkerBoard[parseInt(locationRow)+1][parseInt(locationColumn)-1] = 0;
+
+            // move piece
+            checkerBoard[locationRow][locationColumn] = 1;
+            newLocation = document.getElementById("1"+locationRow+locationColumn);
+            newLocation.style.backgroundColor = "red";
+
+            // remove piece from where it was
+            oldLocation = document.getElementById("1" + clickedLocation[0] + clickedLocation[1]);
+            oldLocation.style.backgroundColor = "black"
+            checkerBoard[clickedLocation[0]][clickedLocation[1]] = 0;
+
+            // done moving everything
+            clickedPiece = false;
+            console.log("Done, piece is moved");
+                        // setup things for the while loop to repeat
+                        clickedLocation[0] = locationRow;
+                        clickedLocation[1] = locationColumn;
+                        locationRow = locationRow - 2;
+                        locationColumn = locationColumn + 2;
+                        console.log("2");
+            }
+            else if(parseInt(locationRow)+1 == parseInt(clickedLocation[0]) && (parseInt(locationColumn)+1 == parseInt(clickedLocation[1]) || parseInt(locationColumn)-1 == parseInt(clickedLocation[1]))){
+            // move piece
+            checkerBoard[locationRow][locationColumn] = 1;
+            newLocation = document.getElementById("1"+locationRow+locationColumn);
+            newLocation.style.backgroundColor = "red";
+
+            // remove piece from where it was
+            oldLocation = document.getElementById("1" + clickedLocation[0] + clickedLocation[1]);
+            oldLocation.style.backgroundColor = "black"
+            checkerBoard[clickedLocation[0]][clickedLocation[1]] = 0;
+
+            // done moving everything
+            clickedPiece = false;
+            console.log("Done, piece is moved");
+                canCaptureMultiple = false;
+
+            }
+            else {
+                canCaptureMultiple = false;
+            }
+        } 
+        else {
+            break;
+        }
     
-    Game Finish -
-        No pieces left on the board 
-        You win!
-*/
+    }
+        }
+        if((colorPiece == "rgb(26, 30, 36)" && checkerBoard[locationRow][locationColumn] == 0) && ((parseInt(locationRow)-1 == parseInt(clickedLocation[0]) && (parseInt(locationColumn)-1 == parseInt(clickedLocation[1]) || parseInt(locationColumn)+1 == parseInt(clickedLocation[1]))) || parseInt(locationRow) - 2 == parseInt(clickedLocation[0]) && parseInt(locationColumn)-2 == parseInt(clickedLocation[1]) || parseInt(locationRow) - 2 == parseInt(clickedLocation[0]) && parseInt(locationColumn)+2 == parseInt(clickedLocation[1]))) {
+            // check if piece is captured
+            if(parseInt(locationRow) - 2 == parseInt(clickedLocation[0]) && parseInt(locationColumn)-2 == parseInt(clickedLocation[1]) && document.getElementById(("1".concat(parseInt(locationRow)-1)).concat(parseInt(locationColumn)-1)).style.backgroundColor=="red")
+            {
+                document.getElementById(("1".concat(parseInt(locationRow)-1)).concat(parseInt(locationColumn)-1)).style.backgroundColor = "black"
+                checkerBoard[parseInt(locationRow)-1][parseInt(locationColumn)-1] = 0;
+                            // move piece
+            checkerBoard[locationRow][locationColumn] = 1;
+            newLocation = document.getElementById("1"+locationRow+locationColumn);
+            newLocation.style.backgroundColor = "rgb(26, 30, 36)";
+
+            // remove piece from where it was
+            oldLocation = document.getElementById("1" + clickedLocation[0] + clickedLocation[1]);
+            oldLocation.style.backgroundColor = "black"
+            checkerBoard[clickedLocation[0]][clickedLocation[1]] = 0;
+
+
+            // done moving everything
+            clickedPiece = false;
+            console.log("Done, piece is moved");
+
+            }
+            else if(parseInt(locationRow) - 2 == parseInt(clickedLocation[0]) && parseInt(locationColumn)+2 == parseInt(clickedLocation[1]) && document.getElementById(("1".concat(parseInt(locationRow)-1)).concat(parseInt(locationColumn)+1)).style.backgroundColor=="red"){
+                document.getElementById(("1".concat(parseInt(locationRow)-1)).concat(parseInt(locationColumn)+1)).style.backgroundColor = "black"
+                checkerBoard[parseInt(locationRow)-1][parseInt(locationColumn)+1] = 0;
+                            // move piece
+            checkerBoard[locationRow][locationColumn] = 1;
+            newLocation = document.getElementById("1"+locationRow+locationColumn);
+            newLocation.style.backgroundColor = "rgb(26, 30, 36)";
+
+            // remove piece from where it was
+            oldLocation = document.getElementById("1" + clickedLocation[0] + clickedLocation[1]);
+            oldLocation.style.backgroundColor = "black"
+            checkerBoard[clickedLocation[0]][clickedLocation[1]] = 0;
+
+
+            // done moving everything
+            clickedPiece = false;
+            console.log("Done, piece is moved");
+
+            }
+            else if(parseInt(locationRow)-1 == parseInt(clickedLocation[0]) && (parseInt(locationColumn)-1 == parseInt(clickedLocation[1]) || parseInt(locationColumn)+1 == parseInt(clickedLocation[1]))){
+            // move piece
+            checkerBoard[locationRow][locationColumn] = 1;
+            newLocation = document.getElementById("1"+locationRow+locationColumn);
+            newLocation.style.backgroundColor = "rgb(26, 30, 36)";
+
+            // remove piece from where it was
+            oldLocation = document.getElementById("1" + clickedLocation[0] + clickedLocation[1]);
+            oldLocation.style.backgroundColor = "black"
+            checkerBoard[clickedLocation[0]][clickedLocation[1]] = 0;
+
+
+            // done moving everything
+            clickedPiece = false;
+            console.log("Done, piece is moved");
+
+            }
+
+
+        }        
+        console.log("Invalid move, try again");
+        clickedPiece = false;
+
+    }
+    // Check if there is a piece on the click location
+    else if(checkerBoard[locationRow][locationColumn] == 1) {
+        console.log("There's a piece here, where to move?");
+        clickedLocation = [locationRow, locationColumn];
+        clickedPiece = true;
+    }
+}
+

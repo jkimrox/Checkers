@@ -5,90 +5,91 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
-    <title>Document</title>
+    <script src="app.js" defer></script>
+    <title>Checkers</title>
 
 </head>
 <body>
     <div id="checkersboard">
         <div>
-            <div class="redSquare"></div>
-            <div class="blackSquare"></div>
-            <div class="redSquare"></div>
-            <div class="blackSquare"></div>
-            <div class="redSquare"></div>
-            <div class="blackSquare"></div>
-            <div class="redSquare"></div>
-            <div class="blackSquare"></div>
+            <div class="redSquare" id="00"></div>  
+            <div class="blackSquare" id="01" onclick="selectSquare(this)"><div class="piece" id="101" style="background-color: #1a1e24;"></div></div>
+            <div class="redSquare" id="02"></div>
+            <div class="blackSquare" id="03" onclick="selectSquare(this)"><div class="piece" id="103" style="background-color: #1a1e24;"></div></div>
+            <div class="redSquare" id="04"></div>
+            <div class="blackSquare" id="05" onclick="selectSquare(this)"><div class="piece" id="105" style="background-color: #1a1e24;"></div></div>
+            <div class="redSquare" id="06"></div>
+            <div class="blackSquare" id="07" onclick="selectSquare(this)"><div class="piece" id="107" style="background-color: #1a1e24;"></div></div>
         </div>
         <div>
-            <div class="blackSquare"></div>
-            <div class="redSquare"></div>
-            <div class="blackSquare"></div>
-            <div class="redSquare"></div>
-            <div class="blackSquare"></div>
-            <div class="redSquare"></div>
-            <div class="blackSquare"></div>
-            <div class="redSquare"></div>
+            <div class="blackSquare" id="10" onclick="selectSquare(this)"><div class="piece" id="110" style="background-color: #1a1e24;"></div></div>
+            <div class="redSquare" id="11"></div>
+            <div class="blackSquare" id="12" onclick="selectSquare(this)"><div class="piece" id="112" style="background-color: #1a1e24;"></div></div>
+            <div class="redSquare" id="13"></div>
+            <div class="blackSquare" id="14" onclick="selectSquare(this)"><div class="piece" id="114" style="background-color: #1a1e24;"></div></div>
+            <div class="redSquare" id="15"></div>
+            <div class="blackSquare" id="16" onclick="selectSquare(this)"><div class="piece" id="116" style="background-color: #1a1e24;"></div></div>
+            <div class="redSquare" id="17"></div>
         </div>
         <div>
-            <div class="redSquare"></div>
-            <div class="blackSquare"></div>
-            <div class="redSquare"></div>
-            <div class="blackSquare"></div>
-            <div class="redSquare"></div>
-            <div class="blackSquare"></div>
-            <div class="redSquare"></div>
-            <div class="blackSquare"></div>
+            <div class="redSquare" id="20"></div>
+            <div class="blackSquare" id="21" onclick="selectSquare(this)"><div class="piece" id="121" style="background-color: #1a1e24;"></div></div>
+            <div class="redSquare" id="22"></div>
+            <div class="blackSquare" id="23" onclick="selectSquare(this)"><div class="piece" id="123" style="background-color: #1a1e24;"></div></div>
+            <div class="redSquare" id="24"></div>
+            <div class="blackSquare" id="25" onclick="selectSquare(this)"><div class="piece" id="125" style="background-color: #1a1e24;"></div></div>
+            <div class="redSquare" id="26"></div>
+            <div class="blackSquare" id="27" onclick="selectSquare(this)"><div class="piece" id="127" style="background-color: #1a1e24;"></div></div>
         </div>
         <div>
-            <div class="blackSquare"></div>
-            <div class="redSquare"></div>
-            <div class="blackSquare"></div>
-            <div class="redSquare"></div>
-            <div class="blackSquare"></div>
-            <div class="redSquare"></div>
-            <div class="blackSquare"></div>
-            <div class="redSquare"></div>
+            <div class="blackSquare" id="30" onclick="selectSquare(this)"><div class="piece" id="130"></div></div>
+            <div class="redSquare" id="31"></div>
+            <div class="blackSquare" id="32" onclick="selectSquare(this)"><div class="piece" id="132"></div></div>
+            <div class="redSquare" id="33"></div>
+            <div class="blackSquare" id="34" onclick="selectSquare(this)"><div class="piece" id="134"></div></div>
+            <div class="redSquare" id="35"></div>
+            <div class="blackSquare" id="36" onclick="selectSquare(this)"><div class="piece" id="136"></div></div>
+            <div class="redSquare" id="37"></div>
         </div>
         <div>
-            <div class="redSquare"></div>
-            <div class="blackSquare"></div>
-            <div class="redSquare"></div>
-            <div class="blackSquare"></div>
-            <div class="redSquare"></div>
-            <div class="blackSquare"></div>
-            <div class="redSquare"></div>
-            <div class="blackSquare"></div>
+            <div class="redSquare" id="40"></div>
+            <div class="blackSquare" id="41" onclick="selectSquare(this)"><div class="piece" id="141" style="background-color:black"></div></div>
+            <div class="redSquare" id="42"></div>
+            <div class="blackSquare" id="43" onclick="selectSquare(this)"><div class="piece" id="143"></div></div>
+            <div class="redSquare" id="44"></div>
+            <div class="blackSquare" id="45" onclick="selectSquare(this)"><div class="piece" id="145"></div></div>
+            <div class="redSquare" id="46"></div>
+            <div class="blackSquare" id="47" onclick="selectSquare(this)"><div class="piece" id="147"></div></div>
         </div>
         <div>
-            <div class="blackSquare"></div>
-            <div class="redSquare"></div>
-            <div class="blackSquare"></div>
-            <div class="redSquare"></div>
-            <div class="blackSquare"></div>
-            <div class="redSquare"></div>
-            <div class="blackSquare"></div>
-            <div class="redSquare"></div>
+            <div class="blackSquare" id="50" onclick="selectSquare(this)"><div class="piece" id="150" style="background-color: red;"></div></div>
+            <div class="redSquare" id="51"></div>
+            <div class="blackSquare" id="52" onclick="selectSquare(this)"><div class="piece" id="152" style="background-color: red;"></div></div>
+            <div class="redSquare" id="53"></div>
+            <div class="blackSquare" id="54" onclick="selectSquare(this)"><div class="piece" id="154" style="background-color: red;"></div></div>
+            <div class="redSquare" id="55"></div>
+            <div class="blackSquare" id="56" onclick="selectSquare(this)"><div class="piece" id="156" style="background-color: red;"></div></div>
+            <div class="redSquare" id="57"></div>
         </div>
         <div>
-            <div class="redSquare"></div>
-            <div class="blackSquare"></div>
-            <div class="redSquare"></div>
-            <div class="blackSquare"></div>
-            <div class="redSquare"></div>
-            <div class="blackSquare"></div>
-            <div class="redSquare"></div>
-            <div class="blackSquare"></div>
+            <div class="redSquare" id="60"></div>
+            <div class="blackSquare" id="61" onclick="selectSquare(this)"><div class="piece" id="161" style="background-color: red;"></div></div>
+            <div class="redSquare" id="62"></div>
+            <div class="blackSquare" id="63" onclick="selectSquare(this)"><div class="piece" id="163" style="background-color: red;"></div></div>
+            <div class="redSquare" id="64"></div>
+            <div class="blackSquare" id="65" onclick="selectSquare(this)"><div class="piece" id="165" style="background-color: red;"></div></div>
+            <div class="redSquare" id="66"></div>
+            <div class="blackSquare" id="67" onclick="selectSquare(this)"><div class="piece" id="167" style="background-color: red;"></div></div>
         </div>
         <div>
-            <div class="blackSquare"></div>
-            <div class="redSquare"></div>
-            <div class="blackSquare"></div>
-            <div class="redSquare"></div>
-            <div class="blackSquare"></div>
-            <div class="redSquare"></div>
-            <div class="blackSquare"></div>
-            <div class="redSquare"></div>
+            <div class="blackSquare"  id="70" onclick="selectSquare(this)"><div class="piece" id="170" style="background-color: red;"></div></div>
+            <div class="redSquare" id="71"></div>
+            <div class="blackSquare" id="72" onclick="selectSquare(this)"><div class="piece" id="172" style="background-color: red;"></div></div>
+            <div class="redSquare" id="73"></div>
+            <div class="blackSquare" id="74" onclick="selectSquare(this)"><div class="piece" id="174" style="background-color: red;"></div></div>
+            <div class="redSquare" id="75"></div>
+            <div class="blackSquare" id="76" onclick="selectSquare(this)"><div class="piece" id="176" style="background-color: red;"></div></div>
+            <div class="redSquare" id="77"></div>
         </div>
     </div>
     
