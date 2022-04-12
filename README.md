@@ -1,19 +1,29 @@
 # Checkers
 
-Simple overview of use/purpose.
-
 ## MVP Project Description
 
-This game is a browser based version of one of the most basic and popular board games of all-time, Checkers. It involves two players which have pieces that move diagonally across the board and mandatory captures by capturing opponent pievces by jumping over their pieces.
+This game is a browser based version of one of the most basic and popular board games of all-time, Checkers. It involves two players which have pieces that move diagonally across the board and mandatory captures by capturing opponent pieces by jumping over their pieces. The player who captures more opponent pieces will end victorious.
 
-## Getting Started
+## MVP Wireframes
+
+## Layout
+
+The layout of the game is seen in the gameboard when viewing the webpage.
+`
+## Buttons
+
+Reset: This button willreturn all players' pieces to their original placement on the board. As a result, the player with Black pieces will begin the game.
+
+## Game Section
+
+The gameboard has three visible sections throughout the gameplay - the Black pieces, the Red pieces, and the Black squares which allow the pieces to travel across the board.
+
+To move a piece, the player must click on a piece and click on an available adjacent diagonal square to move onto. If there is a piece that is able to be captured, the player must click the space across the available opponent piece to capture it. The game is completed when players are unable to move pieces on the board as the game only allows for forward movement.
+
+Once the game is completed, a "Black wins!" or "Red wins!" heading will appear signifying which player captured more opponent pieces while reaching for the opposite end of the board.
 
 
-### Dependencies
-
-
-
-### Installing
+## Installing
 
 Download this repo and copy the HTTPS or SSH key.
 
@@ -35,34 +45,9 @@ When you're in the new directory, run the git clone command with either the HTTP
 ![Screen Shot 2022-04-11 at 10 17 25 AM](https://user-images.githubusercontent.com/102046331/162771543-84f7e4ce-629a-4021-aba4-77bdbe166935.png)
 
 
-### Executing program
-
-
-
-
 ## Help
 
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
 
 ## Authors
 
 Jonathan Kim (@jkimrox)
-
-## Version History
-
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
-
-## License
-
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
-
-## Acknowledgments
-
-Inspiration, code snippets, etc.
