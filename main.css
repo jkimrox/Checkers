@@ -3,6 +3,10 @@ h1 {
     font-size: 60px;
 }
 
+body {
+    background-color: rgb(70, 105, 70);
+}
+
 #checkersboard, .blackSquare, .redSquare {
 	display:block;
 	padding:0px;
