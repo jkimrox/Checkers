@@ -1,5 +1,7 @@
 # Checkers
 
+https://jkimrox.github.io/Checkers/
+
 ## MVP Project Description
 
 This game is a browser based version of one of the most basic and popular board games of all-time, Checkers. It involves two players which have pieces that move diagonally across the board and capture opponent pieces by jumping over them. The player who captures four opponent pieces will end victorious.
