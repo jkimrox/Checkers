@@ -62,3 +62,7 @@ To start the game, open the link near the beginning of the README.md file.
 ## Authors
 
 Jonathan Kim (@jkimrox)
+
+## Acknowledgments
+
+Thanks to Brigitte, Mohammed, and Tim for playing an early build of the game. It helped a ton in restructuring the game and introducing win conditions.
