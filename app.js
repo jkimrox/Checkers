@@ -16,8 +16,6 @@ let redPiecesRemaining = 12;
 // Keep track of whos turn it is; 1 is black, and 0 is red
 let playerTurn = 1;
 
-// For multicapturing 
-let canCaptureMultiple;
 
 // Keep track if player is trying to move a piece
 let clickedPiece = false;
