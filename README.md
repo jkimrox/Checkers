@@ -9,10 +9,10 @@ This game is a browser based version of one of the most basic and popular board 
 ## Layout
 
 The layout of the game is seen in the gameboard when viewing the webpage.
-`
+
 ## Buttons
 
-Reset: This button willreturn all players' pieces to their original placement on the board. As a result, the player with Black pieces will begin the game.
+Reset: This button will return all players' pieces to their original placement on the board. As a result, the player with Black pieces will begin the game.
 
 ## Game Section
 

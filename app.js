@@ -9,6 +9,9 @@ let checkerBoard = [
     [0, 1, 0, 1, 0, 1, 0, 1],
     [1, 0, 1, 0, 1, 0, 1, 0]
 ];
+ 
+let blackPiecesRemaining = 12;
+let redPiecesRemaining = 12;
 
 // Keep track of whos turn it is; 1 is black, and 0 is red
 let playerTurn = 1;
@@ -31,7 +34,6 @@ function selectSquare(element) {
 
     // Move piece if player is trying to move
     if(clickedPiece == true) {
-        while(true){
         // Figure out if piece is red or black
         oldLocation = document.getElementById("1" + clickedLocation[0] + clickedLocation[1]);
         let colorPiece = oldLocation.style.backgroundColor;
@@ -62,27 +64,22 @@ function selectSquare(element) {
             
             console.log("Done, piece is moved");
             
-            
-            // setup things for the while loop to repeat
-            clickedLocation[0] = locationRow;
-            clickedLocation[1] = locationColumn;
-            locationRow = locationRow - 2;
-            locationColumn = locationColumn - 2;
-
-            if((locationRow >= 0 && locationRow <= 7 && locationColumn >= 0 && locationColumn <= 7) && (checkerBoard[locationRow][locationColumn] == 0) && (parseInt(locationRow) + 2 == parseInt(clickedLocation[0]) && parseInt(locationColumn)+2 == parseInt(clickedLocation[1]) && document.getElementById(("1".concat(parseInt(locationRow)+1)).concat(parseInt(locationColumn)+1)).style.backgroundColor=="rgb(26, 30, 36)") || (parseInt(locationRow) + 2 == parseInt(clickedLocation[0]) && parseInt(locationColumn)-2 == parseInt(clickedLocation[1]) && document.getElementById(("1".concat(parseInt(locationRow)+1)).concat(parseInt(locationColumn)-1)).style.backgroundColor=="rgb(26, 30, 36)")) {
-                console.log("breaking here");
-
-                break;
-            }
-            else {
             console.log("1");
 
+            
 
+            blackPiecesRemaining--;
+            document.getElementById("redPoints").innerHTML = parseInt(12-blackPiecesRemaining);
+
+            if(blackPiecesRemaining == 8)
+            {
+                document.getElementById("whoWins").innerHTML = "Red Wins!!!";
+                return;
+            }
                         playerTurn = 1;
             document.getElementById("whosTurn").innerHTML = "Black's Turn";
             clickedPiece = false;
-            break;
-            }
+            
             }
             else if(parseInt(locationRow) + 2 == parseInt(clickedLocation[0]) && parseInt(locationColumn)-2 == parseInt(clickedLocation[1]) && document.getElementById(("1".concat(parseInt(locationRow)+1)).concat(parseInt(locationColumn)-1)).style.backgroundColor=="rgb(26, 30, 36)"){
 
@@ -102,15 +99,19 @@ function selectSquare(element) {
             // done moving everything
             clickedPiece = false;
             console.log("Done, piece is moved");
-                        // setup things for the while loop to repeat
-                        clickedLocation[0] = locationRow;
-                        clickedLocation[1] = locationColumn;
-                        locationRow = locationRow - 2;
-                        locationColumn = locationColumn + 2;
+
+            blackPiecesRemaining--;
+            document.getElementById("redPoints").innerHTML = parseInt(12-blackPiecesRemaining);
+
+            if(blackPiecesRemaining == 8)
+            {
+                document.getElementById("whoWins").innerHTML = "Red Wins!!!";
+                return;
+            }
+
                         console.log("2");
                         playerTurn = 1;
                         document.getElementById("whosTurn").innerHTML = "Black's Turn";
-                        break;
                         
             }
             else if(parseInt(locationRow)+1 == parseInt(clickedLocation[0]) && (parseInt(locationColumn)+1 == parseInt(clickedLocation[1]) || parseInt(locationColumn)-1 == parseInt(clickedLocation[1]))){
@@ -132,7 +133,6 @@ function selectSquare(element) {
 
             playerTurn = 1;
             document.getElementById("whosTurn").innerHTML = "Black's Turn";
-            break;
             }
             else {
                 playerTurn = 1;
@@ -163,10 +163,17 @@ function selectSquare(element) {
                 console.log("Done, piece is moved");
                 
 
+            redPiecesRemaining--;
+
+            document.getElementById("blackPoints").innerHTML = parseInt(12-redPiecesRemaining);
+            if(redPiecesRemaining == 8)
+            {
+                document.getElementById("whoWins").innerHTML = "Black Wins!!!";
+                return;
+            }
 
                 playerTurn = 0;
                 document.getElementById("whosTurn").innerHTML = "Red's Turn";
-                break;
             }
             else if(parseInt(locationRow) - 2 == parseInt(clickedLocation[0]) && parseInt(locationColumn)+2 == parseInt(clickedLocation[1]) && document.getElementById(("1".concat(parseInt(locationRow)-1)).concat(parseInt(locationColumn)+1)).style.backgroundColor=="red"){
                 document.getElementById(("1".concat(parseInt(locationRow)-1)).concat(parseInt(locationColumn)+1)).style.backgroundColor = "black"
@@ -181,14 +188,24 @@ function selectSquare(element) {
             oldLocation.style.backgroundColor = "black"
             checkerBoard[clickedLocation[0]][clickedLocation[1]] = 0;
 
+            console.log("breaking here");
+
 
             // done moving everything
             clickedPiece = false;
             console.log("Done, piece is moved");
 
+            redPiecesRemaining--;
+
+            document.getElementById("blackPoints").innerHTML = parseInt(12-redPiecesRemaining);
+            if(redPiecesRemaining == 8)
+            {
+                document.getElementById("whoWins").innerHTML = "Black Wins!!!";
+                return;
+            }
+
             playerTurn = 0;
             document.getElementById("whosTurn").innerHTML = "Red's Turn";
-            break;
             
 
             }
@@ -211,7 +228,6 @@ function selectSquare(element) {
 
             playerTurn = 0;
             document.getElementById("whosTurn").innerHTML = "Red's Turn";
-            break;
             }
 
 
@@ -219,9 +235,8 @@ function selectSquare(element) {
         }        
         console.log("Invalid move, try again");
         clickedPiece = false;
-        break;
 
-    }
+    
 }
     // Check if there is a piece on the click location
     else if(checkerBoard[locationRow][locationColumn] == 1) {
@@ -229,5 +244,11 @@ function selectSquare(element) {
         clickedLocation = [locationRow, locationColumn];
         clickedPiece = true;
     }
+}
+
+function reset()
+{
+    location.reload();
+
 }
 
