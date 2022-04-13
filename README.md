@@ -20,6 +20,8 @@ Reset: This button will return all players' pieces to their original placement o
 
 The gameboard has three visible sections throughout the gameplay - the Black pieces, the Red pieces, and the Black squares which allow the pieces to travel across the board.
 
+![sections of board checkers](https://user-images.githubusercontent.com/102046331/163088186-99ef85bb-0fd5-4654-abb8-9ffe843835e5.png)
+
 To move a piece, the player must click on a piece and click on an available adjacent diagonal square to move onto. If there is a piece that is able to be captured, the player must click the space across the available opponent piece to capture it. The game is completed when players are unable to move pieces on the board as the game only allows for forward movement.
 
 ![moving arrows checkers](https://user-images.githubusercontent.com/102046331/163087453-e493f6e8-26f7-43ee-b407-bd95142b9a90.png)
